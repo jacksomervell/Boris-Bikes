@@ -13,6 +13,7 @@ DEFAULT_CAPACITY = 15
   end 
 
   def load bike
+    raise 'Van is full' if full?
   @bikes << bike
   end
 
@@ -24,5 +25,8 @@ DEFAULT_CAPACITY = 15
     bike_count == @capacity
   end 
 
+def accepted_bikes
+    @bikes.reject { |bike| !bike.broken?}
+  end
 
 end

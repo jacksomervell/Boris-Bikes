@@ -7,7 +7,7 @@ describe Van do
     15.times {van.load(Bike.new)}
   end 
 
-let (:van) {Van.new}
+let (:van) {Van.new({capacity: 15})}
 let (:bike) {Bike.new}
 
   it 'should be empty after we build it' do
@@ -31,10 +31,18 @@ it 'should know when it has reached capacity' do
   end 
 
   it 'should not accept bike if its full' do
-    fill_station station
-    expect {station.dock(bike)}.to raise_error RuntimeError 
+    fill_van van
+    expect {van.load(bike)}.to raise_error RuntimeError 
   end 
 
+it 'should only accept broken bikes' do
+  working_bike, broken_bike = Bike.new, Bike.new
+    broken_bike.break
 
+     van.load(working_bike)
+    van.load(broken_bike)
+
+    expect(van.accepted_bikes).to eq  [broken_bike]
+  end 
 
 end
