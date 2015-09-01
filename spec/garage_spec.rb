@@ -49,6 +49,14 @@ it 'should only accept broken bikes' do
     expect(garage.accepted_bikes).to eq  [broken_bike]
   end 
 
+  it 'should be able to fix broken bikes' do
+    broken_bike = Bike.new
+    broken_bike.break
+    garage.accept(broken_bike)
+
+    expect garage.fixed_bikes.to eq [broken_bike]
+  end
+
   #should be bale to fix broken bikes
   #should only be able to release fixed bikes
 end  
