@@ -32,5 +32,6 @@ DEFAULT_CAPACITY = 15
   def fixed_bikes
     @bikes.select { |bike| bike.fix}
   end
+  
 
 end

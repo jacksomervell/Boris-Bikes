@@ -57,6 +57,6 @@ it 'should only accept broken bikes' do
     expect garage.fixed_bikes.to eq [broken_bike]
   end
 
-  #should be bale to fix broken bikes
+  #should be bale to fix broken bikes dammit i cant get these to work!
   #should only be able to release fixed bikes
 end  
